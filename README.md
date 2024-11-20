@@ -1,1 +1,2 @@
-![Alt text](/quotesApp.png?raw=true "Optional Title")
+<img src="/Screenshot1.png" width="300">
+<img src="/Screenshot2.png" width="300">
