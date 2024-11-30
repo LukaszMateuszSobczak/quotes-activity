@@ -29,18 +29,18 @@ public class MainActivity extends AppCompatActivity {
 
         quoteRecyclerView = findViewById(R.id.recycle_view_list);
 
-        QuoteAdapter adapter = new QuoteAdapter(readFile());
+        QuoteAdapter adapter = new QuoteAdapter(readFile(), MainActivity.this);
         quoteRecyclerView.setAdapter(adapter);
 
 
         //Tutaj mamy domyślne ustawienie vertical
-//        quoteRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        quoteRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        quoteRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        quoteRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         //Tutaj mamy ustawienia w siatce grid 2 kolumny
-        quoteRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        quoteRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        quoteRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL));
+//        quoteRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+//        quoteRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+//        quoteRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL));
 
     }
 

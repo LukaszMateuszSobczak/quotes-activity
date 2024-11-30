@@ -1,5 +1,7 @@
 package com.lukaszsobczak.listofquotes;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +15,11 @@ import java.util.List;
 public class QuoteAdapter extends RecyclerView.Adapter<QuoteAdapter.QuoteViewHolder> {
 
     private List<Quote> quotes;
+    private Context context;
 
-    public QuoteAdapter(List<Quote> quotes) {
+    public QuoteAdapter(List<Quote> quotes, Context context) {
         this.quotes = quotes;
+        this.context = context;
     }
 
     @NonNull
@@ -27,7 +31,17 @@ public class QuoteAdapter extends RecyclerView.Adapter<QuoteAdapter.QuoteViewHol
 
     @Override
     public void onBindViewHolder(@NonNull QuoteViewHolder holder, int position) {
-        holder.bind(quotes.get(position));
+        Quote quote = quotes.get(position);
+        holder.bind(quote);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, QuotePage.class);
+                intent.putExtra("quote", quote.getContent());
+                intent.putExtra("author", quote.getAuthor());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
